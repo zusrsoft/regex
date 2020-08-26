@@ -3,6 +3,7 @@ package xyz.xindoo.re;
 import xyz.xindoo.re.common.Constant;
 import xyz.xindoo.re.common.Reader;
 import xyz.xindoo.re.common.State;
+import xyz.xindoo.re.common.StateType;
 import xyz.xindoo.re.dfa.DFAGraph;
 import xyz.xindoo.re.dfa.DFAState;
 import xyz.xindoo.re.nfa.NFAGraph;
@@ -28,7 +29,7 @@ public class Regex {
             return null;
         }
         NFAGraph nfaGraph = regex2nfa(regex);
-        nfaGraph.end.setStateType();
+        nfaGraph.end.setStateType(StateType.END); // 将NFA的end节点标记为终止态
         DFAGraph dfaGraph = convertNfa2Dfa(nfaGraph);
         return new Regex(nfaGraph, dfaGraph);
     }
@@ -462,5 +463,9 @@ public class Regex {
             }
         }
         return -1;
+    }
+    // todo, 使用hopcraft算法将dfa最小化
+    private DFAGraph hopcroft(DFAGraph dfaGraph){
+        return new DFAGraph();
     }
 }

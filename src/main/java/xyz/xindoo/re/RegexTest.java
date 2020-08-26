@@ -51,14 +51,15 @@ public class RegexTest {
     }
 
     public static void main(String[] args) {
-        Options options = new OptionsBuilder().include(RegexTest.class.getSimpleName()).build();
-        try {
-            new Runner(options).run();
-        } catch (Exception e) {
-            System.out.println(e.fillInStackTrace());
-        } finally {
-            System.out.println("finshed");
-        }
+        test();
+//        Options options = new OptionsBuilder().include(RegexTest.class.getSimpleName()).build();
+//        try {
+//            new Runner(options).run();
+//        } catch (Exception e) {
+//            System.out.println(e.fillInStackTrace());
+//        } finally {
+//            System.out.println("finshed");
+//        }
     }
 
      private static void test() {
